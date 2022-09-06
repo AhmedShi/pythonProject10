@@ -212,6 +212,5 @@ else:
                     R.append('Variable = ' + str(e) + ' / Year = ' + str(f))
             for i in range(len(R)):
                 Z.append(9700)
-            fig = go.Figure()
             fig = ff.create_distplot(hist_data=W, group_labels=R, bin_size=Z)
             st.plotly_chart(fig, use_container_width=True)
