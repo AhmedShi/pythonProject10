@@ -2,8 +2,6 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 import plotly.express as px
-
-from matplotlib import pyplot as plt
 import numpy as np
 import plotly.figure_factory as ff
 
@@ -200,10 +198,9 @@ else:
             label='Choose variable(s) you want to display', options=L
         )
         if columns == [] or Year == []:
-            x = np.arange(0,3*np.pi, 0.01)
-            y = np.cos(x)
-            plt.plot(x, y)
-            plt.show()
+            data_100 = Total_Pool[Total_Pool['Year'] == 4]
+            fig = ff.create_distplot(hist_data = [data_100['BE N'].values.tolist()], group_labels= [" BE N Year 4"], bin_size=[9800])
+            st.plotly_chart(fig, use_container_width=True)
         else:
             W = []
             R = []
